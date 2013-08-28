@@ -1,8 +1,0 @@
-<!--
-  This view is used to render the installed plugins page.
--->
-<div>
-  This plugin creates a custom Publisher @Extension. It then adds a very simple Descriptor that permits the
-  site administrator to set a property named “publishURL” (the url does not have to be “used” by the plugin)
-  demonstrate that the Publish can be selected by a test job.
-</div>
