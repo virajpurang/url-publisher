@@ -125,7 +125,7 @@ public class UrlPublisher extends Notifier {
     }
 
      /**
-     * Build action that is capable of inserting arbitrary KVPs into the EnvVars.
+     * Build action related to EnvVars.
      *
      * @author vpurang
      */
