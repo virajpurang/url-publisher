@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.CauseAction>
+      <causes>
+        <hudson.model.Cause_-UserIdCause/>
+      </causes>
+    </hudson.model.CauseAction>
+    <org.jenkinsci.plugins.urlpublisher.UrlPublisher_-EnvVarAction plugin="url-publisher@1.0-SNAPSHOT">
+      <name>BUILD_RESULT</name>
+      <value>SUCCESS</value>
+    </org.jenkinsci.plugins.urlpublisher.UrlPublisher_-EnvVarAction>
+  </actions>
+  <number>9</number>
+  <startTime>1377710139731</startTime>
+  <result>SUCCESS</result>
+  <duration>131</duration>
+  <charset>MacRoman</charset>
+  <keepLog>false</keepLog>
+  <builtOn></builtOn>
+  <workspace>/Users/vpurang/code/url-publisher/work/jobs/TestJob1/workspace</workspace>
+  <hudsonVersion>1.509.2</hudsonVersion>
+  <scm class="hudson.scm.NullChangeLogParser"/>
+  <culprits class="com.google.common.collect.EmptyImmutableSortedSet"/>
+</build>
