@@ -66,33 +66,31 @@ public class UrlPublisher extends Notifier {
     @Override
     public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener) throws
             InterruptedException, IOException {
+
         PostMethod post = new PostMethod(publishURL);
         boolean result = true;
         HttpClient client = getHttpClient();
+
         try {
+
             int status = client.executeMethod(post);
             listener.getLogger().printf("Triggered URL %s ",
                     ((status == 200 || status == 302)? "Successfully!\n"    : "But Not Successfully!\n"));
             listener.getLogger().printf("Status Code for URL %s is %s \n", publishURL, status);
 
-/*            Result buildResult = build.getResult();
-
-            if (!Result.SUCCESS.equals(buildResult)) {
-                // Don't process for unsuccessful builds
-                listener.getLogger().printf("Build status is not SUCCESS (" + build.getResult().toString() + ").");
-                return true;
-            }
-*/
-            EnvVarAction httpStatusAction = new EnvVarAction("HTTP_STATUS_ACTION", String
+            EnvironmentVariableAction httpStatusAction = new EnvironmentVariableAction("HTTP_STATUS_ACTION", String
                     .valueOf(status));
             build.addAction(httpStatusAction);
 
         } catch (IOException e) {
             listener.error("Failed to triggered the suggested URL -> %s \n", e.getMessage());
+
         } finally {
             post.releaseConnection();
         }
+
         return true;
+
     }
 
     // Getter
@@ -122,6 +120,7 @@ public class UrlPublisher extends Notifier {
         public String getDisplayName() {
             return "My URL Publisher";
         }
+
     }
 
      /**
@@ -129,11 +128,11 @@ public class UrlPublisher extends Notifier {
      *
      * @author vpurang
      */
-    public static class EnvVarAction implements EnvironmentContributingAction {
+    public static class EnvironmentVariableAction implements EnvironmentContributingAction {
         private final String name;
         private final String value;
 
-        public EnvVarAction(final String name, final String value) {
+        public EnvironmentVariableAction(final String name, final String value) {
             this.name = name;
             this.value = value;
         }
